@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FA9771A2-C648-418B-BD9C-D706CF30104D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ISAAR.MSolve.IGA</RootNamespace>
+    <AssemblyName>ISAAR.MSolve.IGA</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\Boundary.cs" />
+    <Compile Include="Entities\BoundaryConditions\SymmetryBoundaryCondition.cs" />
+    <Compile Include="Entities\Edge.cs" />
+    <Compile Include="Entities\Face.cs" />
+    <Compile Include="Entities\BoundaryConditions\DirichletBoundaryCondition.cs" />
+    <Compile Include="Entities\Cluster.cs" />
+    <Compile Include="Entities\ControlPoint.cs" />
+    <Compile Include="Entities\Element.cs" />
+    <Compile Include="Entities\Knot.cs" />
+    <Compile Include="Entities\Loads\ControlPointLoad.cs" />
+    <Compile Include="Entities\Loads\Load.cs" />
+    <Compile Include="Entities\Loads\LoadingCondition.cs" />
+    <Compile Include="Entities\Loads\NeumannBoundaryCondition.cs" />
+    <Compile Include="Entities\Loads\PressureBoundaryCondition.cs" />
+    <Compile Include="Entities\Model.cs" />
+    <Compile Include="Entities\Patch.cs" />
+    <Compile Include="GenericDOFEnumerator.cs" />
+    <Compile Include="GlobalMatrixAssemblerSkyline.cs" />
+    <Compile Include="Interfaces\IBoundaryCondition.cs" />
+    <Compile Include="Interfaces\IElementMatrixProvider.cs" />
+    <Compile Include="Interfaces\IIsogeometricDOFEnumerator.cs" />
+    <Compile Include="Interfaces\IIsogeometricElement.cs" />
+    <Compile Include="Interfaces\IIsogeometricMaterial.cs" />
+    <Compile Include="Interfaces\IIsogeometricMaterial3D.cs" />
+    <Compile Include="Interfaces\IStructuralIsogeometricElement.cs" />
+    <Compile Include="Logging\DOFsLog.cs" />
+    <Compile Include="Logging\ForcesLog.cs" />
+    <Compile Include="Logging\LinearAnalyzerLogFactory.cs" />
+    <Compile Include="Logging\StressesLog.cs" />
+    <Compile Include="Problems\Structural\Constitutive\ElasticMaterial.cs" />
+    <Compile Include="Problems\Structural\Constitutive\ElasticMaterial2D.cs" />
+    <Compile Include="Problems\Structural\Constitutive\ElasticMaterial3D.cs" />
+    <Compile Include="Problems\Structural\Elements\NURBSElement1D.cs" />
+    <Compile Include="Problems\Structural\Elements\NURBSElement2D.cs" />
+    <Compile Include="Problems\Structural\Elements\NURBSElement3D.cs" />
+    <Compile Include="Problems\Structural\ProblemStructural.cs" />
+    <Compile Include="Problems\Structural\Providers\ElementStructuralDampingProvider.cs" />
+    <Compile Include="Problems\Structural\Providers\ElementStructuralMassProvider.cs" />
+    <Compile Include="Problems\Structural\Providers\ElementStructuralStiffnessProvider.cs" />
+    <Compile Include="Problems\SupportiveClasses\BSPLines1D.cs" />
+    <Compile Include="Problems\SupportiveClasses\GaussQuadrature.cs" />
+    <Compile Include="Problems\SupportiveClasses\NURBS1D.cs" />
+    <Compile Include="Problems\SupportiveClasses\NURBS2D.cs" />
+    <Compile Include="Problems\SupportiveClasses\NURBS3D.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Readers\IsogeometricReader.cs" />
+    <Compile Include="Readers\ModelReader.cs" />
+    <Compile Include="ModelCreator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ISAAR.MSolve.Analyzers.Interfaces\ISAAR.MSolve.Analyzers.Interfaces.csproj">
+      <Project>{eb9a7e5f-ce79-4d49-ac6c-cf9e62ea5692}</Project>
+      <Name>ISAAR.MSolve.Analyzers.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ISAAR.MSolve.Logging.Interfaces\ISAAR.MSolve.Logging.Interfaces.csproj">
+      <Project>{a996da85-a5ea-4c81-bdb9-969ea9512f29}</Project>
+      <Name>ISAAR.MSolve.Logging.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ISAAR.MSolve.Numerical\ISAAR.MSolve.Numerical.csproj">
+      <Project>{ace1ff1d-9550-4583-bde0-5b821809d045}</Project>
+      <Name>ISAAR.MSolve.Numerical</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ISAAR.MSolve.Solvers\ISAAR.MSolve.Solvers.csproj">
+      <Project>{0883B2F7-198A-4404-B13D-22100BF90A31}</Project>
+      <Name>ISAAR.MSolve.Solvers</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Writers\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

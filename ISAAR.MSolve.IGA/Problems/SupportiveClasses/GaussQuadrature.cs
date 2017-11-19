@@ -107,23 +107,23 @@ namespace ISAAR.MSolve.IGA.Problems.SupportiveClasses
 
             for (int i = 0; i < numberOfGPKsi; i++)
             {
-                coordinatesKsi[i] = 0.5 * (knotsOfElement[0].Ksi + knotsOfElement[2].Ksi)
-                    + (knotsOfElement[2].Ksi - knotsOfElement[0].Ksi) * coordinate[numberOfGPKsi][i];
-                weightKsi[i] = 0.5 * ((knotsOfElement[2].Ksi - knotsOfElement[0].Ksi) * weight[numberOfGPKsi][i]);
+                coordinatesKsi[i] = 0.5 * (knotsOfElement[0].Ksi + knotsOfElement[4].Ksi
+                    + (knotsOfElement[4].Ksi - knotsOfElement[0].Ksi) * coordinate[degreeKsi][i]);
+                weightKsi[i] = 0.5 * ((knotsOfElement[4].Ksi - knotsOfElement[0].Ksi) * weight[degreeKsi][i]);
             }
 
             for (int i = 0; i < numberOfGPHeta; i++)
             {
-                coordinatesHeta[i] = 0.5 * (knotsOfElement[0].Heta + knotsOfElement[2].Heta)
-                    + (knotsOfElement[2].Heta - knotsOfElement[0].Heta) * coordinate[numberOfGPHeta][i];
-                weightHeta[i] = 0.5 * ((knotsOfElement[2].Heta - knotsOfElement[0].Heta) * weight[numberOfGPHeta][i]);
+                coordinatesHeta[i] = 0.5 * (knotsOfElement[0].Heta + knotsOfElement[2].Heta
+                    + (knotsOfElement[2].Heta - knotsOfElement[0].Heta) * coordinate[degreeHeta][i]);
+                weightHeta[i] = 0.5 * ((knotsOfElement[2].Heta - knotsOfElement[0].Heta) * weight[degreeHeta][i]);
             }
 
             for (int i = 0; i < numberOfGPZeta; i++)
             {
-                coordinatesZeta[i] = 0.5 * (knotsOfElement[0].Zeta + knotsOfElement[2].Zeta)
-                    + (knotsOfElement[2].Zeta - knotsOfElement[0].Zeta) * coordinate[numberOfGPZeta][i];
-                weightZeta[i] = 0.5 * ((knotsOfElement[2].Zeta - knotsOfElement[0].Zeta) * weight[numberOfGPZeta][i]);
+                coordinatesZeta[i] = 0.5 * (knotsOfElement[0].Zeta + knotsOfElement[1].Zeta
+                    + (knotsOfElement[1].Zeta - knotsOfElement[0].Zeta) * coordinate[degreeZeta][i]);
+                weightZeta[i] = 0.5 * ((knotsOfElement[1].Zeta - knotsOfElement[0].Zeta) * weight[degreeZeta][i]);
             }
 
 

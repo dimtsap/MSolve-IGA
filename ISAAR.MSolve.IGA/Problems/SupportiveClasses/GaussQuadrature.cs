@@ -133,7 +133,7 @@ namespace ISAAR.MSolve.IGA.Problems.SupportiveClasses
                 {
                     for (int k = 0; k < numberOfGPZeta; k++)
                     {
-                        gaussPointsofElement.Add(new GaussLegendrePoint3D(coordinatesKsi[i], coordinatesHeta[j], coordinatesHeta[k], null, weightKsi[i] * weightHeta[j]* weightHeta[k]));
+                        gaussPointsofElement.Add(new GaussLegendrePoint3D(coordinatesKsi[i], coordinatesHeta[j], coordinatesZeta[k], null, weightKsi[i] * weightHeta[j]* weightHeta[k]));
                     }                    
                 }
             }

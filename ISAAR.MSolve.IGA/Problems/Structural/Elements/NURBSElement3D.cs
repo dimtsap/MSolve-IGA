@@ -116,9 +116,9 @@ namespace ISAAR.MSolve.IGA.Problems.Structural.Elements
 
                 Matrix2D stiffnessMatrixGaussPoint = B.Transpose() * element.Patch.Material.ConstitutiveMatrix * B * jacdet * gaussPoints[j].WeightFactor;
 
-                for (int m = 0; m < ControlPointsDictionary.Count * 3; m++)
+                for (int m = 0; m < element.ControlPoints.Count * 3; m++)
                 {
-                    for (int n = 0; n < ControlPointsDictionary.Count * 3; n++)
+                    for (int n = 0; n < element.ControlPoints.Count * 3; n++)
                     {
                         stiffnessMatrixElement[m, n] += stiffnessMatrixGaussPoint[m, n];
                     }

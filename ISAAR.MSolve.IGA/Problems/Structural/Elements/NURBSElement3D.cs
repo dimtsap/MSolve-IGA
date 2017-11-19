@@ -102,7 +102,7 @@ namespace ISAAR.MSolve.IGA.Problems.Structural.Elements
 
             for (int j = 0; j < gaussPoints.Count; j++)
             {
-                Matrix2D jacobianMatrix = CalculateJacobian(ControlPoints, nurbs, j);
+                Matrix2D jacobianMatrix = CalculateJacobian(element.ControlPoints, nurbs, j);
 
                 double jacdet = CalculateJacobianDeterminant(jacobianMatrix);
 
@@ -110,7 +110,7 @@ namespace ISAAR.MSolve.IGA.Problems.Structural.Elements
 
                 Matrix2D B1 = CalculateDeformationMatrix1(inverseJacobian);
 
-                Matrix2D B2 = CalculateDeformationMatrix2(ControlPoints, nurbs, j);
+                Matrix2D B2 = CalculateDeformationMatrix2(element.ControlPoints, nurbs, j);
 
                 Matrix2D B = B1 * B2;
 

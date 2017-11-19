@@ -204,7 +204,7 @@ namespace ISAAR.MSolve.IGA.Problems.Structural.Elements
             inverseJacobian[2, 1] = jacobianMatrix[0, 1] * jacobianMatrix[2, 0] - jacobianMatrix[0, 0] * jacobianMatrix[2, 1];
             inverseJacobian[2, 2] = jacobianMatrix[0, 0] * jacobianMatrix[1, 1] - jacobianMatrix[0, 1] * jacobianMatrix[1, 0];
 
-            inverseJacobian = inverseJacobian * jacdet;
+            inverseJacobian = inverseJacobian * (1/jacdet);
             return inverseJacobian;
         }
 
